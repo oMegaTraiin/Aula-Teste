@@ -6,6 +6,11 @@ on: # Dispara o workflow em push e pull requests
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: write
+  pull-requests: write
+  checks: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
