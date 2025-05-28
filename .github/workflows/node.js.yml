@@ -12,21 +12,18 @@ jobs:
 
     steps:
       - name: Checkout do código
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Configurar Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 18.x
 
       - name: Instalar dependências
         run: npm install
 
-      - name: Executar testes com Jest
-        run: npm install --save-dev jest 
+      - name: Executar testes com cobertura
+        run: npm run test -- --coverage
 
-      # Opcional: Enviar relatório de cobertura para o Codecov
-      # - name: Upload para Codecov
-      #   uses: codecov/codecov-action@v3
-      - name: Executar testes
-        run: npm test
+      - name: Publicar relatório de cobertura
+        uses: ArtiomTr/jest-coverage-report-action@v2
