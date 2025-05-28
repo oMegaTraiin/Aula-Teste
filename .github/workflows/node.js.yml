@@ -28,3 +28,5 @@ jobs:
       # Opcional: Enviar relatório de cobertura para o Codecov
       # - name: Upload para Codecov
       #   uses: codecov/codecov-action@v3
+      - name: Executar testes
+        run: npm test
